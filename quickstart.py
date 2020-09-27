@@ -9,9 +9,9 @@ app = Flask(__name__)
 # def index():
 #     return 'Home page'
 
-# @app.route('/hello')
-# def hello():
-#     return 'Sup world'
+@app.route('/hello')
+def hello():
+    return 'Sup world'
 
 
 #### VARIABLE ROUTES ####
@@ -49,9 +49,10 @@ def about():
 #### URL BUILDING ####
 from flask import url_for
 
-@app.route('/')
-def index():
-    return 'index'
+# @app.route('/')
+# def index():
+#     url_for('static', filename='styles.css)
+#     return 'index'
 
 # @app.route('/login')
 # def login():
@@ -62,7 +63,7 @@ def profile(username):
     return '{}\'s profile'.format(escape(username))
 
 with app.test_request_context():
-    print(url_for('index'))
+    # print(url_for('index'))
     # print(url_for('login'))
     # print(url_for('login', next='/'))
     print(url_for('profile', username='Pablo Sanchez'))
@@ -85,3 +86,51 @@ def login():
     else:
         return show_the_login_form()
 
+
+#### REQUEST OBJECT ####
+from flask import request, render_template
+
+#### TESTING - see flask docs ####
+with app.test_request_context('/hello', method='POST'):
+    assert request.path == '/hello'
+    assert request.method == 'POST'
+
+# @app.route('/loginagain', methods=['POST', 'GET'])
+# def loginagain():
+#     error = None
+#     if request.method == 'POST':
+#         if valid_login(request.form['username'],
+#                        request.form['password']):
+#             return log_the_user_in(request.form['username'])
+#         else:
+#             error = 'Invalid username or password'
+#             # code below executed if GET request OR credentials not valid
+#     return render_template('login.html', error=error)
+
+
+## to access params in URL use the args attribute:
+## my_param = request.args.get('key', '')
+
+## SEE MORE INFO ON FLASK WEBPAGE
+
+
+
+#### REDIRECTS AND ERRORS ####
+from flask import abort, url_for, redirect
+
+def this_is_never_executed():
+    return 'Why can\'t you see me?'
+
+@app.route('/')
+def index():
+    return redirect(url_for('loginthird'))
+
+@app.route('/loginthird')
+def loginthird():
+    abort(401)
+    this_is_never_executed()
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
