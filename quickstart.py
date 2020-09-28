@@ -134,3 +134,24 @@ def loginthird():
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
+
+
+#### RESPONSE OBJECTS ####
+# @app.route('/me')
+# def my_api():
+#     user = get_current_user()
+#     return {
+#         'username': user.username,
+#         'theme': user.theme,
+#         'image': url_for('user_image', filename=user.image),
+#     }
+from flask import jsonify
+
+# @app.route('/users')
+# def users_api():
+#     users = get_all_users
+#     return jsonify([user.to_json() for user in users])
+
+
+
+
