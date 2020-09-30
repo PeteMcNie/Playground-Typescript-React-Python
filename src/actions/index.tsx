@@ -9,7 +9,7 @@ export interface DecrementEnthusiasm {
     type: constants.DECREMENT_ENTHUSIASM
 }
 
-// Created a type (EnthusiasmAction) to describe cases where an action could be an increment or a decrement.
+// Created a type (EnthusiasmAction) to describe cases where an action could be an increment or a decrement. Known as a union type.
 export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm
 
 
