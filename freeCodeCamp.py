@@ -20,7 +20,7 @@ def hello():
     print(string)
     print(num)
     # print('Welcome', name)
-    print('US Floor', usFloor)
+    # print('US Floor', usFloor)
 
     if x < 70:
         print('yes, less than 70')
@@ -105,5 +105,153 @@ def hello():
     for i in [5, 4, 3, 2, 1]:
         print(i)
     print('done')
+
+    
+
+
+    # LOOP IDIOMS
+    print('before')
+    for theNumber in [9, 47, 65, 23]:
+        print(theNumber)
+    print('after')
+
+
+    largest_so_far = -1
+    print('before', largest_so_far)
+    for num1 in [56, 2, 57, 34, 444, 86, 234, 0, 84]:
+        if num1 > largest_so_far:
+            largest_so_far = num1
+        print(largest_so_far, num1)
+    print('after', largest_so_far)
+
+    count = 0
+    loop_total = 0
+    print('before', loop_total)
+    for loop_num in [56, 2, 57, 34, 444, 86, 234, 0, 8]:
+        count += 1
+        loop_total += loop_num
+        print(count, loop_total, loop_num)
+    print('after', count, loop_total, loop_total / count)
+
+    print('before')
+    for num2 in [56, 2, 57, 34, 444, 86, 234, 0, 84]:
+        if num2 > 100:
+            print('Numbers greater than 100: ', num2)
+    print('after')
+
+    # Better technique for setting the initial variable when you don't know a starting number
+    smallest = None
+    print('before')
+    for num3 in [56, 12, 57, 34, 444, 86, 234, 1, 84]:
+        if smallest is None:
+            smallest = num3
+        elif num3 < smallest:
+            smallest = num3
+            print('Smallest number:', smallest)
+    print('after', smallest)
+
+
+    #LOOPING STRINGS
+    fruit_i_like = 'banana'
+    letter = fruit_i_like[2]
+    print(letter)
+    # letter = fruit_i_like[54] Cannot search for string indexes out of range / longer than string length
+    # print(letter)
+    print(len(fruit_i_like))
+
+    index = 0
+    while index < len(fruit_i_like):
+        letter2 = fruit_i_like[index]
+        print(index, letter2)
+        index += 1
+
+
+    for letter in fruit_i_like:
+        print(letter)
+    
+
+    a_count = 0
+    for letter in fruit_i_like:
+        if letter == 'a':
+            a_count += 1
+    print(a_count)
+
+
+    # SLICING STRINGS
+    s = 'Hello world'
+    print(s[0:4])
+     # read as: print 's', 0 = sub-zero, : = through to, 4 = up to but NOT INCLUDING 4
+    print(s[6:7])
+    print(s[:7])
+    # means start at the start
+
+    print(s[6:])
+    # means end at the end
+
+    print(s[:])
+    # mean start at the start and end at the end
+
+
+    # in can be used as an operator (== etc)
+    if 'a' in fruit_i_like:
+        print('Would be true')
+
+    if 'y' in fruit_i_like:
+        print('Would be false so this text will not show!!!!')
+
+
+    greeting = 'Hello Pete'
+    lowercase = greeting.lower()
+    print(greeting, lowercase)
+
+    position = fruit_i_like.find('na')
+    print(position)
+    uppercase = fruit_i_like.upper()
+    print(uppercase)
+    lowercase1 = fruit_i_like.lower()
+    print(lowercase1)
+    newString = fruit_i_like.replace('banana', 'orange')
+    print(newString)
+    newLetter = fruit_i_like.replace('a', 'XX')
+    print(newLetter)
+
+    spaces = '        hello spaces      '
+    print(spaces)
+    spaces1 = spaces.lstrip()
+    print(spaces1)
+    spaces2 = spaces.rstrip()
+    print(spaces2)
+    spaces3 = spaces.strip()
+    print(spaces3)
+
+    line = "Have a nice day"
+    print(line.startswith('Have'))
+    print(line.startswith('h'))
+
+
+    email_data = 'pablo_sanchez455@hotdog.co.net FEB 2020'
+
+    atsignpos = email_data.find('@')
+    print(atsignpos)
+
+    spacepos = email_data.find(' ', atsignpos)
+    #                             point to search for the space AFTER
+    print(spacepos)
+
+    pablosaddress = email_data[atsignpos +1:spacepos]
+    print(pablosaddress)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return favouriteTeam('manu')
