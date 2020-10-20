@@ -43,33 +43,92 @@ def python():
 
 
 
-    file_name = raw_input('Enter a file name to search through:  ')
-    try:
-        file_handle = open(file_name)
-    except:
-        print('File cannot be opened:', file_name)
-        quit() # Stop executing the rest of this file. We need to provide our own error message above as there will be no traceback
+    # file_name = raw_input('Enter a file name to search through:  ')
+    # try:
+    #     file_handle = open(file_name)
+    # except:
+    #     print('File cannot be opened:', file_name)
+    #     quit() # Stop executing the rest of this file. We need to provide our own error message above as there will be no traceback
 
-    count2 = 0
-    for line in file_handle:
-        if 'Poseidon' in line:
-            count2 += 1
-    print('Lines with Poseidon', count2)
+    # count2 = 0
+    # for line in file_handle:
+    #     if 'Poseidon' in line:
+    #         count2 += 1
+    # print('Lines with Poseidon', count2)
 
 
 
     #LISTS [] like arrays in JS
+    # LISTs ARE mutable
+    print(['blue', 'red', 'yellow', 24, 89.6])
+    print(['Dan', 'Steve', [1, 'Snow'], 'Kim'])
+
+    friends = ['Sam', 'Ari', 'Jake', 'Zac', 'Kim', 'Rikke']
+    for friend in friends: # This loop is fine if you don't need to know your position in the loop
+        print('Happy Birthday:', friend)
+    print('The end')
+
+    print(friends[1]) # ari
+    print(len(friends)) # Number of items in a list ie: 6
+    print(range(3)) # range gives us a list upto that number ie: [0, 1, 2]
+    print(range(len(friends))) # range combined with len give us each index of the list ie: [0, 1, 2, 3, 4, 5]
+
+    for index in range(len(friends)): # This for statement uses index to find the data stored at each location in the list
+        friend = friends[index]       # SAME AS ABOVE LOOP BUT USES INDEX
+        print('Happy New Year:', friend)
 
 
+    #You can add lists together like this:
+    a = [1, 2, 3]
+    b = [5, 6, 7]
+    c = a + b
+    print('Two lists added together', c)
 
+    #LIST SLICING
+    my_list = [3, 94, 75, 63, 7, 800, 19, 10, 151, 812, 1, 14]
+    print(my_list[1:3])
+    print(my_list[:4])
+    print(my_list[5:])
+    print(my_list[:])
 
+    #LIST METHODS
+    stuff = list() # makes an empty list
+    stuff.append('book')
+    stuff.append(56)
+    print(stuff)
+    
+    print(94 in my_list)
+    print(10 in my_list)
+    print(24 not in my_list)
 
+    print('Pre-sort', my_list)
+    my_list.sort()
+    print('Sorted', my_list)
 
+    print(len(my_list))
+    print(max(my_list))
+    print(min(my_list))
+    print(sum(my_list))
+    print(sum(my_list)/len(my_list))
 
+    total = 0 # Create a for loop to add up the values of numbers input into the computer, the find average
+    count = 0
+    while True:
+        inputt = input('Enter a number: ')
+        if inputt == 0 : 
+            break
+        value = float(inputt)
+        total += value
+        count += 1
+    average = total / count
+    print('Average is:', average)
 
-
-
-
-
+    # Create a list to add numbers to, then find average
+    new_list = list()
+    while True:
+        inputt2 = input('Enter a number: ')
+        if inputt2 == 0 : break
+        new_list.append(inputt2)
+    print(sum(new_list)/len(new_list))
 
     return 'and here we go'
