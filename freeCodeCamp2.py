@@ -111,24 +111,68 @@ def python():
     print(sum(my_list))
     print(sum(my_list)/len(my_list))
 
-    total = 0 # Create a for loop to add up the values of numbers input into the computer, the find average
-    count = 0
-    while True:
-        inputt = input('Enter a number: ')
-        if inputt == 0 : 
-            break
-        value = float(inputt)
-        total += value
-        count += 1
-    average = total / count
-    print('Average is:', average)
+    # total = 0 # Create a for loop to add up the values of numbers input into the computer, the find average
+    # count = 0
+    # while True:
+    #     inputt = input('Enter a number: ')
+    #     if inputt == 0 : 
+    #         break
+    #     value = float(inputt)
+    #     total += value
+    #     count += 1
+    # average = total / count
+    # print('Average is:', average)
 
     # Create a list to add numbers to, then find average
-    new_list = list()
-    while True:
-        inputt2 = input('Enter a number: ')
-        if inputt2 == 0 : break
-        new_list.append(inputt2)
-    print(sum(new_list)/len(new_list))
+    # new_list = list()
+    # while True:
+    #     inputt2 = input('Enter a number: ')
+    #     if inputt2 == 0 : break
+    #     new_list.append(inputt2)
+    # print(sum(new_list)/len(new_list))
+
+
+
+    #SPLIT METHOD
+    abc = 'Here are the words'
+    stuff = abc.split()
+    print(stuff)
+    print(len(stuff))
+    print(stuff[1])
+
+    for word in stuff:
+        print(word)
+    print('done')
+
+
+    spaces = 'Here is       a ton    of spaces  '
+    lets_split = spaces.split()
+    print(lets_split) #Ignores extra spaces
+
+    text = 'Posiedon;Athena;Zeus;Apollo'
+    # attemp_to_split = text.spilt() # Does not work as no spaces to 'split' between.
+    # print(attemp_to_split)
+    actual_split = text.split(';')
+    print(actual_split)
+
+    email_line = 'From: pablo_sanchez565@dogsandstuff.com Fri Jan 6 03:45:34 2008'
+    split_email_line = email_line.split()
+    print(split_email_line)
+    print(split_email_line[2])
+
+    email = split_email_line[1]
+    part_of_email = email.split('@')
+    print(part_of_email[1])
+
+
+
+
+
+
+
+
+
+
+
 
     return 'and here we go'
